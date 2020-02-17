@@ -6,8 +6,56 @@
 </head>
 <body>
   <script>
-    // Your JavaScript goes here!
-    console.log("Hello, World!")
+    function computerPlay()
+    {
+        //computer randomly returns either 'Rock', 'Paper', or 'Scissors'
+        const choices = ["Rock", "Paper", "Scissors"];
+        const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+        console.log(randomChoice);
+    }
+
+    /* Write a function that plays a single round of Rock Paper Scissors. 
+    The function should take two parameters - the playerSelection and computerSelection - 
+    and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" */
+    function playRound(playerSelection, computerSelection)
+    {
+        /*if player = rock && computer = rock
+        then tie
+        else if player = rock && computer = scissors
+        then player win
+        else if player = rock && computer = paper
+        then computer win */
+
+        if (playerSelection == 'rock' && computerSelection == 'Rock')
+        {
+            let str = "Tie!";
+            document.write(str);
+        }
+        
+        
+
+        /*if player = scissors && computer = scissors
+        then tie
+        else if player = scissors && computer = rock
+        then computer win
+        else if player = scissors && computer = paper
+        then player win
+
+        if player = paper && computer = scissors
+        then computer win
+        else if player = paper && computer = rock
+        then player win
+        else if player = paper && computer = paper
+        then tie */
+
+        
+    }
+
+    const playerSelection = 'rock'
+    const computerSelection = computerPlay()
+    console.log(playRound(playerSelection, computerSelection))
+
+    
   </script>
 </body>
 </html>
