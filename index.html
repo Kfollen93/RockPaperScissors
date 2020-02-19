@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head> <!-- Meta data goes here-->
-  <title>Page Title</title>
+  <title>Rock Paper Scissors</title>
   <meta charset="UTF-8"/>
 </head>
 <body>
+  <h1 class = "heading">Rock, Paper, Scissors</h1>
+  <style>
+    .heading
+    {
+      font-size: 50px;
+      text-align: center;
+    }
+  </style>
   <script>
     function computerPlay()
     {
@@ -26,12 +34,12 @@
         }
         else if (playerSelection == 'rock' && computerSelection == 'paper')
         {   
-            console.log("You lose! Paper beats rock.");
-            return 'loss';
+            console.log("You lose! Paper beats rock."); //this has to be console.log to display because of the below
+            return 'loss'; // can only have one return statement because JS exits after it sees return
         }
         else if (playerSelection == 'rock' && computerSelection == 'scissors')
         {   
-            console.log("You win! Rock beats scissors.");
+            console.log("You win! Rock beats scissors."); 
             return 'won';
         }
         else if (playerSelection == 'paper' && computerSelection == 'rock')
@@ -76,7 +84,7 @@
       for (let i = 0; i < 5; i++)
       {
         //All of this goes within the for loop because I want all these steps to occur 5 times.
-        let userInput = prompt("Please enter 'rock', 'paper' or 'scissors':");
+        let userInput = prompt('Please enter "Rock", "Paper", or "Scissors". Best out of 5 entries wins!:');
         playerSelection = userInput.toLowerCase();
         computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
