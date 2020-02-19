@@ -19,80 +19,90 @@
     function playRound(playerSelection, computerSelection)
     {
         //debug line console.log("Playing the round. Computer: "+computerSelection+", Player: "+playerSelection);
-        let computerPoints = 0;
-        let playerPoints = 0; 
-        totalComputerPoints = computerPoints;
-        totalPlayerPoints = playerPoints;
 
         if (playerSelection == 'rock' && computerSelection == 'rock')
-        {
-            return "Tie!";
+        {   
+            console.log("Tie!");
         }
         else if (playerSelection == 'rock' && computerSelection == 'paper')
         {   
-            computerPoints + 1;
-            return "You lose! Paper beats rock.";
+            console.log("You lose! Paper beats rock.");
+            return 'loss';
         }
         else if (playerSelection == 'rock' && computerSelection == 'scissors')
         {   
-            playerPoints++;
-            return "You win! Rock beats scissors.";
+            console.log("You win! Rock beats scissors.");
+            return 'won';
         }
         else if (playerSelection == 'paper' && computerSelection == 'rock')
         {
-          computerPoints++;
-          return "You lose! Paper beats rock.";
+          console.log("You lose! Paper beats rock.");
+          return 'loss';
         }
         else if (playerSelection == 'paper' && computerSelection == 'paper')
         {
-          return "Tie!";
+          console.log("Tie!");
         }
         else if (playerSelection == 'paper' && computerSelection == 'scissors')
         {
-          computerPoints++;
-          return "You lose! Scissors beats paper.";
+          console.log("You lose! Paper beats rock.");
+          return 'loss';
         }
         else if (playerSelection == 'scissors' && computerSelection == 'scissors')
         {
-          return "Tie!";
+          console.log("Tie!");
         }
         else if (playerSelection == 'scissors' && computerSelection == 'rock')
         {
-          computerPoints++;
-          return "You lose! Rock beats scissors.";
+          console.log("You lose! Paper beats rock.");
+          return 'loss';
         }
         else if (playerSelection == 'scissors' && computerSelection == 'paper')
         {
-          playerPoints++;
-          return "You win! Scissors beats paper.";
+          console.log("You win! Rock beats scissors.");
+          return 'won';
         }
         else
         {
-          return "Error. Please enter 'Rock', 'Paper', or 'Scissors'";
+          console.log("Error. Please enter 'Rock', 'Paper', or 'Scissors'");
         }
         
     } 
 
     function game()
     {
-      
+      let computerPoints = 0, playerPoints = 0;
+
       for (let i = 0; i < 5; i++)
       {
         //All of this goes within the for loop because I want all these steps to occur 5 times.
         let userInput = prompt("Please enter 'rock', 'paper' or 'scissors':");
         playerSelection = userInput.toLowerCase();
         computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+        let result = playRound(playerSelection, computerSelection);
+        if (result == 'won')
+        {
+          playerPoints++;
+        }
+        else if (result == 'loss')
+        {
+          computerPoints++;
+        }
+        else
+        {
+          continue;
+        }
 
       }
-        console.log("The Computer's total number of points are: ", totalComputerPoints);
-        console.log("Your total number of points are: ", totalPlayerPoints);
 
-        if (totalComputerPoints > totalPlayerPoints)
+        console.log("The Computer's total number of points are: ", computerPoints);
+        console.log("Your total number of points are: ", playerPoints);
+      
+        if (computerPoints > playerPoints)
         {
-          console.log("The Computer wins!");
+          console.log("Better luck next time! The Computer wins!");
         }
-        else if (totalPlayerPoints > totalComputerPoints)
+        else if (playerPoints > computerPoints)
         {
           console.log("Congratulations! You win!");
         }
@@ -100,15 +110,8 @@
         {
           console.log("You both have the same number of points! It's a tie!");
         }
-
-      
-      
       
     }
-    
-    
-    
-    
 
     
   </script>
