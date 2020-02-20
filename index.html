@@ -9,13 +9,23 @@
   <img class = "background" src="/Images/FinalBackground.jpg" alt = "Sky background">
   <h1 class = "heading">Rock, Paper, Scissors</h1>
 
-  <div>
-  <img class = "rock" src="/Images/Rock.png" alt="Rock">
-  <img class = "paper" src="/Images/YellowPaper.png" alt="Paper">
-  <img class = "scissors" src="/Images/ScissorsTrans.png" alt="Scissors">
+  <div id = "buttons">
+    <button class = "rockButton" type = "button">
+      <input type ="image" img class="rock" src="/Images/Rock.png" alt="Rock">
+    </button>
+    <button class = "paperButton" type = "button">
+      <input type = "image" img class = "paper" src="/Images/YellowPaper.png" alt="Paper">
+    </button>
+    <button class = "scissorsButton" type = "button">
+      <input type = "image" img class = "scissors" src="/Images/ScissorsTrans.png" alt="Scissors">
+    </button>
+   <!-- <button class = "startButton" type = "button"> Click to Start!</button> --> 
   </div>
 
+  <p>This game can only currently be run by opening developer tools (press F12 on Windows), selecting Console, typing in game(); and then pressing enter.</p>
+  <p>I will add the Javascript to the buttons on click when I learn how :)</p>
   <style>
+
     .heading
     {
       font-size: 50px;
@@ -37,11 +47,20 @@
 
     .rock
     {
-      position: fixed;
-      width: 220px; height: 220px;
-      top: 30%;
+      position: absolute;
+      width: 270px; height: 270px;
+      top: -250%;
+      left: -90%;
+      
+    }
+    
+    .rockButton
+    {
+      position: absolute;
+      width: 100px; height: 50px;
+      top: 40%;
       left: 10%;
-      padding-right: 10px;
+      
     }
 
     .paper
@@ -50,16 +69,31 @@
       width: 220px; height: 220px;
       top: 30%;
       left: 40%;
-      padding-left: 30px;
+      
+    }
+
+    .paperButton
+    {
+      position: absolute;
+      width: 100px; height: 50px;
+      top: 40%;
+      left: 43%;
     }
 
     .scissors
     {
-      position: fixed;
+      position: absolute;
       width: 220px; height: 220px;
-      top: 30%;
-      left: 70%;
-      padding-left: 100px;
+      top: -4700%;
+      left: -350%;
+    }
+
+    .scissorsButton
+    {
+      position: absolute;
+      width: 5px; height: 5px;
+      top: 40%;
+      left: 78%;
     }
 
 
