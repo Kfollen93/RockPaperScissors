@@ -7,7 +7,7 @@
 <body>
   
   <img class = "background" src="/Images/FinalBackground.jpg" alt = "Sky background">
-  <h1 class = "heading">Rock, Paper, Scissors</h1>
+  
 
   <div id = "buttons">
     <button class = "rockButton" type = "button">
@@ -19,194 +19,18 @@
     <button class = "scissorsButton" type = "button">
       <input type = "image" img class = "scissors" src="/Images/ScissorsTrans.png" alt="Scissors">
     </button>
-   <!-- <button class = "startButton" type = "button"> Click to Start!</button> --> 
   </div>
 
-  <p>This game can only currently be run by opening developer tools (press F12 on Windows), selecting Console, typing in game(); and then pressing enter.</p>
-  <p>I will add the Javascript to the buttons on click when I learn how :)</p>
-  <style>
-
-    .heading
-    {
-      font-size: 50px;
-      text-align: center;
-      text-decoration: underline;
-      text-underline-position: under;
-      color: rgb(0, 75, 236);
-      
-    }
-
-    .background
-    {
-      position:fixed;
-      top:0px;left:0px;
-      width:100%;height:100%;
-      z-index:-1;
-      
-    }
-
-    .rock
-    {
-      position: absolute;
-      width: 270px; height: 270px;
-      top: -250%;
-      left: -90%;
-      
-    }
-    
-    .rockButton
-    {
-      position: absolute;
-      width: 100px; height: 50px;
-      top: 40%;
-      left: 10%;
-      
-    }
-
-    .paper
-    {
-      position: fixed;
-      width: 220px; height: 220px;
-      top: 30%;
-      left: 40%;
-      
-    }
-
-    .paperButton
-    {
-      position: absolute;
-      width: 100px; height: 50px;
-      top: 40%;
-      left: 43%;
-    }
-
-    .scissors
-    {
-      position: absolute;
-      width: 220px; height: 220px;
-      top: -4700%;
-      left: -350%;
-    }
-
-    .scissorsButton
-    {
-      position: absolute;
-      width: 5px; height: 5px;
-      top: 40%;
-      left: 78%;
-    }
+<div id = "wrapper">
+    <h1 class = "heading">Rock, Paper, Scissors</h1>
+    <button class = "startButton" type = "button"> Click to Start!</button>
+</div>
 
 
-  </style>
-  <script>
-    function computerPlay()
-    {
-        //computer randomly returns either 'Rock', 'Paper', or 'Scissors'
-        const choices = ["rock", "paper", "scissors"];
-        const randomChoice = choices[Math.floor(Math.random() * choices.length)];
-        //console.log(randomChoice); //console only DISPLAYS it doesn't return the value.
-        return randomChoice; //i need to use return because I want this value to be used.
-    }
+  
 
-   
-    function playRound(playerSelection, computerSelection)
-    {
-        //debug line console.log("Playing the round. Computer: "+computerSelection+", Player: "+playerSelection);
 
-        if (playerSelection == 'rock' && computerSelection == 'rock')
-        {   
-            console.log("Tie!");
-        }
-        else if (playerSelection == 'rock' && computerSelection == 'paper')
-        {   
-            console.log("You lose! Paper beats rock."); //this has to be console.log to display because of the below
-            return 'loss'; // can only have one return statement because JS exits after it sees return
-        }
-        else if (playerSelection == 'rock' && computerSelection == 'scissors')
-        {   
-            console.log("You win! Rock beats scissors."); 
-            return 'won';
-        }
-        else if (playerSelection == 'paper' && computerSelection == 'rock')
-        {
-          console.log("You lose! Paper beats rock.");
-          return 'loss';
-        }
-        else if (playerSelection == 'paper' && computerSelection == 'paper')
-        {
-          console.log("Tie!");
-        }
-        else if (playerSelection == 'paper' && computerSelection == 'scissors')
-        {
-          console.log("You lose! Paper beats rock.");
-          return 'loss';
-        }
-        else if (playerSelection == 'scissors' && computerSelection == 'scissors')
-        {
-          console.log("Tie!");
-        }
-        else if (playerSelection == 'scissors' && computerSelection == 'rock')
-        {
-          console.log("You lose! Paper beats rock.");
-          return 'loss';
-        }
-        else if (playerSelection == 'scissors' && computerSelection == 'paper')
-        {
-          console.log("You win! Rock beats scissors.");
-          return 'won';
-        }
-        else
-        {
-          console.log("Error. Please enter 'Rock', 'Paper', or 'Scissors'");
-        }
-        
-    } 
-
-    function game()
-    {
-      let computerPoints = 0, playerPoints = 0;
-
-      for (let i = 0; i < 5; i++)
-      {
-        //All of this goes within the for loop because I want all these steps to occur 5 times.
-        let userInput = prompt('Please enter "Rock", "Paper", or "Scissors". Best out of 5 entries wins!:');
-        playerSelection = userInput.toLowerCase();
-        computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        if (result == 'won')
-        {
-          playerPoints++;
-        }
-        else if (result == 'loss')
-        {
-          computerPoints++;
-        }
-        else
-        {
-          continue;
-        }
-
-      }
-
-        console.log("The Computer's total number of points are: ", computerPoints);
-        console.log("Your total number of points are: ", playerPoints);
-      
-        if (computerPoints > playerPoints)
-        {
-          console.log("Better luck next time! The Computer wins!");
-        }
-        else if (playerPoints > computerPoints)
-        {
-          console.log("Congratulations! You win!");
-        }
-        else
-        {
-          console.log("You both have the same number of points! It's a tie!");
-        }
-      
-    }
-
-    
-  </script>
+<link rel="stylesheet" href="styles.css"> 
+<script type="text/javascript" src="RPSscript.js"></script>
 </body>
 </html>
