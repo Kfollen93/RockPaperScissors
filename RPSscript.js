@@ -110,22 +110,24 @@ const startButton = document.querySelector('.startButton');
 startButton.addEventListener('click', () =>
 {
   game();
+  console.log('start button clicked');
 });
 
-const rockButton = document.querySelector('.rockButton');
-rockButton.addEventListener('click', () =>
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () =>
 {
-  playRound(rockButton);
+  playRound(rock);
+  console.log('rock button clicked');
 });
 
-const paperButton = document.querySelector('.paperButton');
-paperButton.addEventListener('click', () =>
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', () =>
 {
-  playRound(paperButton);
+  playRound(paper);
 });
 
-const scissorsButton = document.querySelector('.scissorsButton');
-scissorsButton.addEventListener('click', () =>
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () =>
 {
-  playRound(scissorsButton);
+  playRound(scissors);
 });
