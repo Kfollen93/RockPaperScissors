@@ -2,35 +2,48 @@
 <html>
 <head> <!-- Meta data goes here-->
   <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles.css"> 
+  <script type="text/javascript" src="RPSscript.js"></script>
   <meta charset="UTF-8"/>
 </head>
 <body>
-  
-  <img class = "background" src="/Images/FinalBackground.jpg" alt = "Sky background">
-  
+  <main>
 
-  <div id = "buttons">
-    <button class = "rockButton" type = "button">
-      <input type ="image" img class="rock" src="/Images/Rock.png" alt="Rock">
-    </button>
-    <button class = "paperButton" type = "button">
-      <input type = "image" img class = "paper" src="/Images/YellowPaper.png" alt="Paper">
-    </button>
-    <button class = "scissorsButton" type = "button">
-      <input type = "image" img class = "scissors" src="/Images/ScissorsTrans.png" alt="Scissors">
-    </button>
+    <header>
+      <h1 class = "heading">Rock, Paper, Scissors</h1>
+    </header>
+
+  <div class="container" id = "buttons-container">
+      <button class ="buttons">
+        <input type ="image" img class="rock rockPaperScissors" src="/Images/newRock.png" alt="Rock">
+      </button>
+
+      <button class ="buttons">
+        <input type = "image" img class = "paper rockPaperScissors" src="/Images/newPaper.png" alt="Paper">
+      </button>
+
+      <button class ="buttons">  
+        <input type = "image" img class = "scissors rockPaperScissors" src="/Images/newScissors.png" alt="Scissors">
+      </button>
   </div>
 
-<div id = "wrapper">
-    <h1 class = "heading">Rock, Paper, Scissors</h1>
-    <button class = "startButton" type = "button"> Click to Start!</button>
+<div class="output">
+  <h2>Console:</h2>
+  <p id="gameScore" class="gameScore">Lets Play!</p>
+  <h2>Score:</h2>
+  <div class="gameScore">
+      <p class="gameScore" id="gamePlayer">Player:</p>
+      <p class="gameScore" id="PlayerScores"></p>
+      <p class="gameScore" id="gameComputer">Computer:</p>
+      <p class="gameScore" id="computerScores"></p>
+  </div>
+</div>
+
+<div class="start">
+  <button class = "startButton" type = "button"> Click to Start!</button>
 </div>
 
 
-  
-
-
-<link rel="stylesheet" href="styles.css"> 
-<script type="text/javascript" src="RPSscript.js"></script>
+</main>
 </body>
 </html>
