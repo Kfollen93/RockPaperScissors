@@ -1,6 +1,54 @@
 let computerPoints = document.getElementById("computerScores").innerHTML = 0;
 let playerPoints = document.getElementById("playerScores").innerHTML = 0;
 
+//All player choice buttons are disabled upon web page load
+document.getElementById("rockDisabled").disabled = true;
+document.getElementById("paperDisabled").disabled = true;
+document.getElementById("scissorsDisabled").disabled = true;
+
+const startButton = document.querySelector('.startButton');
+startButton.addEventListener('click', () =>
+{
+  game();
+});
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () =>
+{
+  playRoundRock();
+});
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', () =>
+{
+  playRoundPaper();
+});
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () =>
+{
+  playRoundScissors();
+});
+
+
+function game()
+{
+  let consoleClear = document.querySelector('.gameScore');
+  let consoleText = '<i>Go!</i>';
+  consoleClear.innerHTML = consoleText;
+
+  document.getElementById("computerScores").innerHTML = 0;
+  document.getElementById("playerScores").innerHTML = 0;
+
+  computerPoints = 0;
+  playerPoints = 0;
+ 
+  document.getElementById("rockDisabled").disabled = false;
+  document.getElementById("paperDisabled").disabled = false;
+  document.getElementById("scissorsDisabled").disabled = false;
+  //after clicking start button, buttons are active.
+}
+
 function computerPlay()
 {
   //computer randomly returns either 'Rock', 'Paper', or 'Scissors'
@@ -83,53 +131,6 @@ function playRoundScissors()
     document.getElementById("gameScore").innerHTML = computerPlay();
   }
 }
-
-//All player choice buttons are disabled upon web page load
-document.getElementById("rockDisabled").disabled = true;
-document.getElementById("paperDisabled").disabled = true;
-document.getElementById("scissorsDisabled").disabled = true;
-
-function game()
-{
-  let consoleClear = document.querySelector('.gameScore');
-  let consoleText = '<i>Go!</i>';
-  consoleClear.innerHTML = consoleText;
-
-  document.getElementById("computerScores").innerHTML = 0;
-  document.getElementById("playerScores").innerHTML = 0;
-
-  computerPoints = 0;
-  playerPoints = 0;
- 
-  document.getElementById("rockDisabled").disabled = false;
-  document.getElementById("paperDisabled").disabled = false;
-  document.getElementById("scissorsDisabled").disabled = false;
-  //after clicking start button, buttons are active.
-}
-
-const startButton = document.querySelector('.startButton');
-startButton.addEventListener('click', () =>
-{
-  game();
-});
-
-const rock = document.querySelector('.rock');
-rock.addEventListener('click', () =>
-{
-  playRoundRock();
-});
-
-const paper = document.querySelector('.paper');
-paper.addEventListener('click', () =>
-{
-  playRoundPaper();
-});
-
-const scissors = document.querySelector('.scissors');
-scissors.addEventListener('click', () =>
-{
-  playRoundScissors();
-});
 
 function scoreTracker()
 {
