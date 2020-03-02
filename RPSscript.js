@@ -1,11 +1,14 @@
 
-let playerPoints = _score("playerScores").innerHTML = 0
+/*let playerPoints = _score("playerScores").innerHTML = 0
 let computerPoints = _score("computerScores").innerHTML = 0
 
 function _score(playerScores, computerScores)
 {
   return document.getElementById(playerScores, computerScores);
-}
+} */
+
+let computerPoints = document.getElementById("computerScores").innerHTML = 0;
+let playerPoints = document.getElementById("playerScores").innerHTML = 0;
 
 function computerPlay()
 {
@@ -19,20 +22,50 @@ function computerPlay()
 /***
  * This function lets us get the player's input, and start the round
  ***/
-function startRound(event){
+function startRound(event)
+{
   let playerSelection = event.target.closest("button").value;
-    computerSelection = computerPlay();
+  computerSelection = computerPlay();
   console.log(playerSelection);
-    let result = playRound(playerSelection, computerSelection);
+  //let result = playRound(playerSelection, computerSelection);
+}
+
+function playRoundRock()
+{
+  let computerSelection = computerPlay();
+  if (computerSelection === "rock")
+  {
+      return document.getElementById("gameScore").innerHTML = "It's a tie. Both chose Rock! No points awarded.";
+  }
+  else if (computerSelection === "paper")
+  {
+    computerPoints = document.getElementById("computerScores").innerHTML = computerPoints++;
+    //scoreTracker();
+    return document.getElementById("gameScore").innerHTML = "You lose. Paper beats Rock.";
+  }
+  else if (computerSelection === "scissors")
+  {
+      playerPoints = document.getElementById("playerScores").innerHTML = playerPoints++;
+      //scoreTracker();
+      return document.getElementById("gameScore").innerHTML = "You win! Rock beats scissors!";
+  }
+  else
+  {
+     return document.getElementById("gameScore").innerHTML = computerPlay();
+  }
 }
 
 
-function playRound(playerSelection, computerSelection)
+/* function playRound(playerSelection, computerSelection)
 {
 
-    if (playerSelection == 'rock' && computerSelection == 'rock')
+    if (playerSelection == rock && computerSelection == 'rock')
     {   
         //can i use textContent or appendChild() here to update the console on screen?
+        let consoleTie = document.querySelector('.gameScore');
+        let consoleTieText = 'You both rolled rock! No points have been awarded';
+        consoleTie.innerHTML = consoleTieText;
+
         console.log("Tie!");
     }
     else if (playerSelection == 'rock' && computerSelection == 'paper')
@@ -78,7 +111,9 @@ function playRound(playerSelection, computerSelection)
       console.log("Error. Please enter 'Rock', 'Paper', or 'Scissors'");
     }
     
-} 
+} */
+
+
 
 
 /*function game()
@@ -162,8 +197,7 @@ startButton.addEventListener('click', () =>
   const rock = document.querySelector('.rock');
   rock.addEventListener('click', () =>
   {
-    playRound(rock);
-    console.log('rock button clicked');
+    playRoundRock();
   });
 
   const paper = document.querySelector('.paper');
@@ -181,5 +215,3 @@ startButton.addEventListener('click', () =>
   });
 
 
-//see discord messages in JS section from 9:30am - 10:37am. Also snow's codepen help:
-// https://codepen.io/snowmonkey/pen/MWwmLmg?editors=0010
