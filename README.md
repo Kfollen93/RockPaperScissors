@@ -1,1 +1,3 @@
-Rock Paper Scissors game created with Javascript.  The program is run in the browser console.
+Rock Paper Scissors game created with Javascript.
+
+My project can be accessed via this link: https://kfollen93.github.io/RockPaperScissors/
